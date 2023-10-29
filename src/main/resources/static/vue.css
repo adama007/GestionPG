@@ -1,0 +1,58 @@
+/* Style de la table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #f8f3f3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style de l'en-tête de la table */
+.thead-dark {
+    background-color: #333;
+    color: #7e0e0e;
+}
+
+.thead-dark th {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Style des lignes de la table */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc; /* Ajout de bordures */
+}
+
+th, td {
+    padding: 12px;
+}
+
+/* Style pour la première colonne (ID) */
+td:first-child {
+    font-weight: bold;
+}
+
+/* Style pour la colonne de la catégorie */
+td:last-child {
+    text-transform: capitalize; /* Met la première lettre en majuscule */
+}
+
+/* Ajout d'espacement entre les cellules */
+table td, table th {
+    padding: 10px;
+}
+
+/* Ajout d'ombre aux cellules au survol */
+td:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

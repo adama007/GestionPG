@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link th:href="@{/ajout.css}" rel="stylesheet">
+
+    <!-- Vos liens CSS et autres en-têtes ici -->
+</head>
+<body>
+    <form method="post" th:object="${Produit}" th:action="@{/submitProduit}">
+        <div>
+            <label for="nom">Nom du produit:</label>
+            <input type="text"name="nom" required th:field="*{nom}">
+        </div>
+        <div>
+            <label for="prix">Prix du produit:</label>
+            <input type="number" name="prix" required th:field="*{prix}">
+        </div>
+        <div>
+            <label for="quantite">Quantité du produit:</label>
+            <input type="number"  name="quantite" required th:field="*{quantite}">
+        </div>
+        <div>
+            <label for="categorie">Catégorie du produit:</label>
+            <select  name="categorie" th:field="*{categorie}">
+                <option th:each="c:${categories}" th:text="${c.nom}" th:value="${c.id}"></option>
+                
+            </select>
+        </div>
+        <div>
+            <button type="submit">Ajouter</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link th:href="@{/vue.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <form th:action="@{/Produits}">
+
+        <div class="search-bar">
+            <input type="text" name="mc" placeholder="Rechercher..." />
+            <button type="submit">Rechercher</button>
+          </div>
+    </form>
+    <br>
+   
+    </form>
+    <a href="/ajoutform">Ajouter </a>
+
+      
+      
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Quantite</th>
+                <th scope="col">Categorie</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="produit : ${Produits}">
+                <td th:text="${produit.id}"></td>
+                <td th:text="${produit.nom}"></td>
+                <td th:text="${produit.prix}"></td>
+                <td th:text="${produit.quantite}"></td>
+                <td th:text="${produit.categorie.nom}"></td>
+                <td>
+                    <a th:href="@{'/delete/' + ${produit.id}}" class="btn btn-danger "> Supprimer</a>
+                </td>
+                
+            </tr>
+        </tbody>
+        
+    </table>
+</body>
+</html>
