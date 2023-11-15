@@ -7,14 +7,14 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 @AllArgsConstructor
-public class ServiceProduit implements IServiceProduit{
+public class ServiceProduit implements IServiceProduit {
 
     private ProduitRepository produitRepository;
-
-   
 
     @Override
     public void saveProduct(Produit p) {
@@ -27,8 +27,8 @@ public class ServiceProduit implements IServiceProduit{
     }
 
     @Override
-    public List<Produit> getProductsByMC(String mc) {
-        return produitRepository.findByNomContains(mc);
+    public Page<Produit> getProductsByMC(String mc, Pageable p) {
+        return produitRepository.findByNomContains(mc, p);
     }
 
     @Override

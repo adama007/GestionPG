@@ -1,0 +1,31 @@
+/* Styles for the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Styles for table header */
+.table th {
+    background-color: #343a40; /* Header background color */
+    color: #fff; /* Header text color */
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+}
+
+/* Styles for table rows */
+.table tr { 
+    background-color: #f2f2f2; /* Row background color */
+}
+
+/* Styles for even rows (alternating background color) */
+.table tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+/* Styles for table data cells */
+.table td {
+    padding: 8px;
+}

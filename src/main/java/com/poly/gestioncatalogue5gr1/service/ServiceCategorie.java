@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ServiceCategorie implements IServiceCategorie {
 
-    private CategorieRepository categorieRepository;
+    private final CategorieRepository categorieRepository;
 
     @Override
     public void saveCategorie(Categorie c) {

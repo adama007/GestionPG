@@ -9,6 +9,6 @@ public interface IServiceCategorie {
     public void saveCategorie(Categorie c);
     public List<Categorie> getAllCategories();
     public void deleteCategorie(Long id);
-    public Categorie getCategorie(Long id);
+    public Categorie getCategorie(Long i);
     
 }

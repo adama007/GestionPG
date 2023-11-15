@@ -1,0 +1,39 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link th:href="@{/modif.css}" rel="stylesheet">
+        <!-- Vos liens CSS et autres en-têtes ici -->
+    </head>
+    <body>
+        <form method="post" th:action="@{/modifProduct}">
+            <input type="hidden" name="id" th:value="${Produit.id}">
+            <div>
+                <label for="nom">Nom du produit:</label>
+                <input type="text" name="nom" required th:value="${Produit.nom}">
+            </div>
+            <div>
+                <label for="prix">Prix du produit:</label>
+                <input type="number" name="prix" required th:value="${Produit.prix}">
+            </div>
+            <div>
+                <label for="quantite">Quantité du produit:</label>
+                <input type="number" name="quantite" required th:value="${Produit.quantite}">
+            </div>
+            <input type="hidden" name="Produit.categorie.id" th:value="${Produit.categorie.id}">
+
+            <div>
+                <label for="categorie">Catégorie du produit:</label>
+                <div>
+                    <label for="categorie">Catégorie du produit:</label>
+                    <select name="categorie" required th:value="${Produit.categorie.id}">
+                        <option th:each="c : ${categories}" th:text="${c.nom}" th:value="${c.id}"></option>
+                    </select>
+                </div>
+                
+            </div>
+            <div>
+                <button type="submit">Modifier</button>
+            </div>
+        </form>
+    </body>
+    </html>

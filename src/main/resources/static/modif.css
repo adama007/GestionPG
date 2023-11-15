@@ -1,0 +1,41 @@
+/* Style du formulaire */
+form {
+    max-width: 400px; /* Largeur maximale du formulaire */
+    margin: 0 auto; /* Centrer le formulaire horizontalement */
+    padding: 20px; /* Espace intérieur pour le formulaire */
+    border: 1px solid #ccc; /* Bordure du formulaire */
+    border-radius: 5px; /* Coins arrondis du formulaire */
+    background-color: #f8f8f8; /* Couleur de fond du formulaire */
+  }
+  
+  /* Style des étiquettes (labels) */
+  label {
+    display: block; /* Afficher les étiquettes en tant que bloc pour les aligner correctement */
+    margin-bottom: 5px; /* Marge en bas de chaque étiquette */
+  }
+  
+  /* Style des champs de texte */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%; /* Largeur maximale des champs de texte */
+    padding: 10px; /* Espace interne pour les champs de texte */
+    margin-bottom: 10px; /* Marge en bas de chaque champ de texte */
+    border: 1px solid #ccc; /* Bordure des champs de texte */
+    border-radius: 3px; /* Coins légèrement arrondis */
+  }
+  
+  /* Style du bouton "Modifier" */
+  button[type="submit"] {
+    background-color: #007BFF; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    padding: 10px 15px; /* Espace interne pour le bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 3px; /* Coins légèrement arrondis */
+    cursor: pointer; /* Curseur de type main pour indiquer que c'est un bouton */
+  }
+  
+  /* Style du bouton "Modifier" au survol (hover) */
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond modifiée au survol */
+  }
+  
