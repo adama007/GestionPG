@@ -28,7 +28,7 @@ public class ProduitControleur {
     private IServiceProduit serviceProduit;
     private IServiceCategorie serviceCategorie;
 
-    @GetMapping("/Produits")
+    @GetMapping("/user/Produits")
     public String getAllProducts(Model model, @RequestParam(name = "page", defaultValue = "1") int page,
             @RequestParam(name = "size", defaultValue = "5") int size,
             @RequestParam(name = "mc", defaultValue = "") String mc) {
@@ -40,38 +40,38 @@ public class ProduitControleur {
         return "vue";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/admin/delete/{id}")
     public String getdeleteProduct(@PathVariable("id") Long idProduit) {
         serviceProduit.deleteProduct(idProduit);
-        return "redirect:/Produits";
+        return "redirect:/user/Produits";
     }
 
-    @GetMapping("/ajoutform")
+    @GetMapping("/admin/ajoutform")
     public String ajout(Model m) {
         m.addAttribute("Produit", new Produit()); // Créez un nouvel objet Produit
         m.addAttribute("categories", serviceCategorie.getAllCategories());
         return "ajout";
     }
 
-    @PostMapping("/submitProduit")
+    @PostMapping("/admin/submitProduit")
     public String saveProduct(@Valid Produit p, BindingResult bindingResult, Model m) {
         if (bindingResult.hasErrors()) {
             return "ajout";
         }
 
         serviceProduit.saveProduct(p);
-        return "redirect:/Produits";
+        return "redirect:/user/Produits";
 
     }
 
-    @GetMapping("/modif/{id}")
+    @GetMapping("/admin/modif/{id}")
     public String modifyProductForm(Model m, @PathVariable("id") Long idProduit) {
         m.addAttribute("categories", serviceCategorie.getAllCategories());
         m.addAttribute("Produit", serviceProduit.getProduct(idProduit));
         return "modif";
     }
 
-    @PostMapping("/modifProduct")
+    @PostMapping("/admin/modifProduct")
     public String submitModifiedProduct(@ModelAttribute Produit produit) {
         // Produit existingProduct = serviceProduit.getProduct(produit.getId());
 
@@ -90,6 +90,10 @@ public class ProduitControleur {
 
         // Redirigez l'utilisateur vers une page de confirmation ou à l'endroit souhaité
         return "redirect:/Produits";
+    }
+    @GetMapping("/user/")
+    public String getHome() {
+        return "redirect:/user/Produits";
     }
 
 }

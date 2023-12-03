@@ -6,7 +6,7 @@
     <!-- Vos liens CSS et autres en-têtes ici -->
 </head>
 <body>
-    <form method="post" th:object="${Produit}" th:action="@{/submitProduit}">
+    <form method="post" th:object="${Produit}" th:action="@{/admin/submitProduit}">
         <div>
             <label for="nom">Nom du produit:</label>
             <input type="text"name="nom" required th:field="*{nom}">

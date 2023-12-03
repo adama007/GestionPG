@@ -12,6 +12,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+
+
 @SpringBootApplication
 @AllArgsConstructor
 public class GestionCatalogue5Gr1Application implements CommandLineRunner {

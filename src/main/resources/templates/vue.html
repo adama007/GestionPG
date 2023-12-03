@@ -11,9 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    
+    <div class="text-end">
+        <form method="post" th:action="@{/user/logout}">
+            <button type="submit" class="btn btn-danger"> se deconnecter </button>
+        </form>
+    </div>
 
-    <form th:action="@{/Produits}" method="get">
+    <form th:action="@{/admin/Produits}" method="get">
 
         <div class="search-bar" >
             <input type="text" th:value="${mc}" name="mc" placeholder="Rechercher..." />
@@ -23,7 +27,7 @@
     <br>
    
     </form>
-    <a class="a" th:href="@{/ajoutform}">Ajouter </a>
+    <a class="a" th:href="@{/admin/ajoutform}">Ajouter </a>
 
       
       
@@ -46,9 +50,9 @@
                 <td th:text="${produit.prix}"></td>
                 <td th:text="${produit.quantite}"></td>
                 <td th:text="${produit.categorie.nom}"></td>
-                <td>
-                    <a th:href="@{'/delete/' + ${produit.id}}" class="custom-button delete-button">Supprimer</a>
-                    <a th:href="@{'/modif/' + ${produit.id}}" class="custom-button update-button">Modifier</a>                    
+                <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <a th:href="@{'/admin/delete/' + ${produit.id}}" class="custom-button delete-button">Supprimer</a>
+                    <a th:href="@{'/admin/modif/' + ${produit.id}}" class="custom-button update-button">Modifier</a>                    
                 </td>
 
                 
@@ -90,7 +94,7 @@
     
     <ul class="pagination">
         <li th:each="i, c: ${pages}" th:classappend="${c.current} ? 'active'">
-            <a th:href="@{/Produits(page=${c.count},mc=${mc})}" th:text="${c.count}" class="page-link"></a>
+            <a th:href="@{/user/Produits(page=${c.count},mc=${mc})}" th:text="${c.count}" class="page-link"></a>
         </li>
     </ul>
     
